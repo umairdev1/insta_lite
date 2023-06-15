@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:insta_lite/view/home_view/home_view.dart';
 
 import '../../utilis/colors.dart';
+import '../profile_view/profile_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -28,10 +29,7 @@ class _MainViewState extends State<MainView> {
       'History',
       style: optionStyle,
     ),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+    ProfileView(),
   ];
 
   void _onItemTapped(int index) {

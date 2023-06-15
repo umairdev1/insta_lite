@@ -13,6 +13,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  double _currentSliderValue = 40;
   bool selectedindex = true;
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,7 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Expanded(
@@ -102,7 +103,7 @@ class _HomeViewState extends State<HomeView> {
                                             height: 20,
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                         Text(
@@ -115,7 +116,7 @@ class _HomeViewState extends State<HomeView> {
                                             fontWeight: FontWeight.w500,
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           width: 5,
                                         ),
                                       ],
@@ -125,7 +126,7 @@ class _HomeViewState extends State<HomeView> {
                               );
                             }),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       SizedBox(
@@ -144,12 +145,12 @@ class _HomeViewState extends State<HomeView> {
                                         profileData[index].image,
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 5,
                                     ),
                                     Text(
                                       profileData[index].title,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 16,
                                       ),
                                     ),
@@ -158,11 +159,11 @@ class _HomeViewState extends State<HomeView> {
                               );
                             }),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
-                        children: [
+                        children: const [
                           Expanded(
                             child: Text(
                               "Top Creators",
@@ -180,12 +181,12 @@ class _HomeViewState extends State<HomeView> {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: ScrollPhysics(),
+                          physics: const ScrollPhysics(),
                           itemCount: productData.length,
                           itemBuilder: (context, index) {
                             return Padding(
@@ -215,7 +216,7 @@ class _HomeViewState extends State<HomeView> {
                                                 children: [
                                                   Text(
                                                     productData[index].title,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         fontSize: 16,
                                                         fontWeight:
                                                             FontWeight.w500),
@@ -240,22 +241,168 @@ class _HomeViewState extends State<HomeView> {
                                                 )),
                                           ],
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 10,
                                         ),
                                         SizedBox(
-                                          height: 220,
+                                          height: 250,
                                           width: double.maxFinite,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                            child: Image.network(
-                                              productData[index].bgimg,
-                                              fit: BoxFit.cover,
-                                            ),
+                                          child: Stack(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                child: Image.network(
+                                                  productData[index].bgimg,
+                                                  fit: BoxFit.cover,
+                                                  height: 250,
+                                                  width: double.maxFinite,
+                                                ),
+                                              ),
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            8.0),
+                                                    child: Container(
+                                                      width: double.maxFinite,
+                                                      decoration: BoxDecoration(
+                                                        color: kwhiteClr,
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(10),
+                                                      ),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .all(8.0),
+                                                        child: Column(
+                                                          children: [
+                                                            Row(
+                                                              children: [
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: const [
+                                                                    Text(
+                                                                      "Dream PC",
+                                                                      style: TextStyle(
+                                                                          fontSize:
+                                                                              16,
+                                                                          fontWeight:
+                                                                              FontWeight.w500),
+                                                                    ),
+                                                                    SizedBox(
+                                                                      height: 5,
+                                                                    ),
+                                                                    Text(
+                                                                      "56%",
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              kprimaryClr,
+                                                                          fontSize:
+                                                                              16),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                const Spacer(),
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      "Raised",
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              ktextgreyClr,
+                                                                          fontSize:
+                                                                              12,
+                                                                          fontWeight:
+                                                                              FontWeight.w400),
+                                                                    ),
+                                                                    const SizedBox(
+                                                                      height: 5,
+                                                                    ),
+                                                                    const Text(
+                                                                      "\$4300",
+                                                                      style: TextStyle(
+                                                                          fontSize:
+                                                                              14,
+                                                                          fontWeight:
+                                                                              FontWeight.w600),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 10,
+                                                                ),
+                                                                Column(
+                                                                  crossAxisAlignment:
+                                                                      CrossAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Text(
+                                                                      "Goals",
+                                                                      style: TextStyle(
+                                                                          color:
+                                                                              ktextgreyClr,
+                                                                          fontSize:
+                                                                              12,
+                                                                          fontWeight:
+                                                                              FontWeight.w400),
+                                                                    ),
+                                                                    const SizedBox(
+                                                                      height: 5,
+                                                                    ),
+                                                                    const Text(
+                                                                      "\$1200",
+                                                                      style: TextStyle(
+                                                                          fontSize:
+                                                                              14,
+                                                                          fontWeight:
+                                                                              FontWeight.w600),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                            Slider(
+                                                              activeColor:
+                                                                  kprimaryClr,
+                                                              inactiveColor:
+                                                                  klightgreyClr,
+                                                              value:
+                                                                  _currentSliderValue,
+                                                              max: 100,
+                                                              divisions: 5,
+                                                              label:
+                                                                  _currentSliderValue
+                                                                      .round()
+                                                                      .toString(),
+                                                              onChanged: (double
+                                                                  value) {
+                                                                setState(() {
+                                                                  _currentSliderValue =
+                                                                      value;
+                                                                });
+                                                              },
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 10,
                                         ),
                                         Row(
@@ -273,7 +420,7 @@ class _HomeViewState extends State<HomeView> {
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
-                                                  children: [
+                                                  children: const [
                                                     Icon(
                                                       Icons.share,
                                                       size: 18,
@@ -292,7 +439,7 @@ class _HomeViewState extends State<HomeView> {
                                                 ),
                                               ),
                                             ),
-                                            SizedBox(
+                                            const SizedBox(
                                               width: 10,
                                             ),
                                             Expanded(
@@ -308,7 +455,7 @@ class _HomeViewState extends State<HomeView> {
                                                 child: Row(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
-                                                  children: [
+                                                  children: const [
                                                     Text(
                                                       "Support",
                                                       style: TextStyle(
